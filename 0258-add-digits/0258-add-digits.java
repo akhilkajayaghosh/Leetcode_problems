@@ -1,22 +1,9 @@
 class Solution {
     public int addDigits(int num) {
-        if(digit(num)==1) return num;
-        while(digit(num)>1)
-        {
-            int val=sum(num);
-            num=val;
-        }
+        //if(digit(num)==1) return num;
+        while(num>=10)
+            num=sum(num);
         return num;
-    }
-    public int digit(int n)
-    {
-        int count=0;
-        while(n!=0)
-        {
-            n/=10;
-            ++count;
-        }
-        return count;
     }
     public int sum(int n)
     {
