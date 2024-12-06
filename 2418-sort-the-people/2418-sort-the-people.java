@@ -1,18 +1,16 @@
 class Solution {
     public String[] sortPeople(String[] names, int[] heights) {
-        HashMap<Integer,String> mp=new HashMap<>();
-        ArrayList<Integer> arr=new ArrayList<>();
+        Map<Integer,String> mp=new TreeMap<>();
         int n=names.length;
         String str[]=new String[n];
         for(int i=0;i<n;i++)
         {
             mp.put(heights[i],names[i]);
-            arr.add(heights[i]);
         }
-        Collections.sort(arr,Collections.reverseOrder());
-        for(int i=0;i<n;i++)
+        int c=n-1;
+        for(Map.Entry<Integer,String> e:mp.entrySet())
         {
-            str[i]=mp.get(arr.get(i));
+            str[c--]=e.getValue();
         }
         return str;
     }
